@@ -889,13 +889,33 @@ Ready to help me build this?</p>
             </div>
             
             <div class="step">
-                <h3><span class="step-number">7</span> Get Your API Keys</h3>
-                <p>Get keys from each service and save them somewhere safe:</p>
+                <h3><span class="step-number">7</span> Get Your Anthropic API Key (Required!)</h3>
+                
+                <div class="warning">
+                    <p>🔑 <strong>This is the most important key.</strong> Your AI runs on Claude (made by Anthropic). Without this key, nothing works.</p>
+                </div>
+                
+                <ol>
+                    <li>Go to <a href="https://console.anthropic.com" target="_blank"><strong>console.anthropic.com</strong></a></li>
+                    <li>Create an account (or sign in)</li>
+                    <li>Go to <strong>API Keys</strong> in the left sidebar</li>
+                    <li>Click <strong>Create Key</strong></li>
+                    <li>Copy the key (starts with <code>sk-ant-</code>) and save it somewhere safe!</li>
+                </ol>
+                
+                <p><strong>⚠️ You only see the key once!</strong> If you lose it, you'll need to create a new one.</p>
+                
+                <h4>💳 Add Credits</h4>
+                <p>Go to <strong>Billing</strong> → <strong>Add Credits</strong>. Start with $20-50. Your AI costs about $0.05-0.15 per conversation depending on length.</p>
+                
+                <div class="checkpoint">✅ <strong>Checkpoint:</strong> You have an API key starting with <code>sk-ant-</code> saved somewhere safe.</div>
+                
+                <h4>Optional: Other API Keys</h4>
+                <p>These are nice-to-have but not required to get started:</p>
                 <ul>
-                    <li><strong>Claude:</strong> <a href="https://console.anthropic.com" target="_blank">console.anthropic.com</a></li>
-                    <li><strong>OpenAI:</strong> <a href="https://platform.openai.com" target="_blank">platform.openai.com</a></li>
-                    <li><strong>Gemini:</strong> <a href="https://aistudio.google.com" target="_blank">aistudio.google.com</a></li>
-                    <li><strong>Brave:</strong> <a href="https://brave.com/search/api" target="_blank">brave.com/search/api</a></li>
+                    <li><strong>OpenAI:</strong> <a href="https://platform.openai.com" target="_blank">platform.openai.com</a> — for voice transcription, image generation</li>
+                    <li><strong>Gemini:</strong> <a href="https://aistudio.google.com" target="_blank">aistudio.google.com</a> — cheaper model for research tasks</li>
+                    <li><strong>Brave:</strong> <a href="https://brave.com/search/api" target="_blank">brave.com/search/api</a> — for web search (free tier available)</li>
                 </ul>
             </div>
             
@@ -916,21 +936,48 @@ Ready to help me build this?</p>
                 <pre>ssh root@100.x.x.x</pre>
                 <p><em>Remember: When typing your password, nothing appears on screen — that's normal!</em></p>
                 
-                <h4>💬 Connect Slack (The Important Part)</h4>
+                <h4>🔑 Add Your Anthropic API Key</h4>
                 <p>Once you're connected, type this command:</p>
                 <pre>openclaw config</pre>
                 <p>This opens an interactive menu. Use arrow keys to navigate:</p>
+                <ol>
+                    <li>Select <strong>Model</strong> (or <strong>Models</strong>)</li>
+                    <li>Find <strong>Anthropic</strong></li>
+                    <li>Paste your API key (<code>sk-ant-...</code>) when asked</li>
+                    <li>Press Enter to confirm</li>
+                </ol>
+                
+                <h4>💬 Connect Slack</h4>
+                <p>Still in the config menu:</p>
                 <ol>
                     <li>Select <strong>Channels</strong></li>
                     <li>Select <strong>Slack</strong></li>
                     <li>Paste your <strong>Bot Token</strong> (<code>xoxb-...</code>) when asked</li>
                     <li>Paste your <strong>App Token</strong> (<code>xapp-...</code>) when asked</li>
                     <li>Press Enter through any other prompts (defaults are fine)</li>
-                    <li>Select <strong>Save</strong> or <strong>Continue</strong> when done</li>
+                    <li>Select <strong>Save</strong> when done</li>
                 </ol>
                 <p>The wizard will restart OpenClaw automatically.</p>
                 
-                <h4>🧪 Test It!</h4>
+                <h4>✅ Verify Everything Works</h4>
+                <p>After the restart, run this command to check your setup:</p>
+                <pre>openclaw status</pre>
+                <p>You should see:</p>
+                <ul>
+                    <li>✅ <strong>Gateway:</strong> Running</li>
+                    <li>✅ <strong>Model:</strong> anthropic/claude-... (your Anthropic key is working)</li>
+                    <li>✅ <strong>Channels:</strong> slack (connected)</li>
+                </ul>
+                
+                <div class="warning" style="background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);">
+                    <p>🔍 <strong>If something's wrong</strong>, the status command will show errors. Common fixes:</p>
+                    <ul style="margin-top: 10px;">
+                        <li><strong>No model:</strong> Re-run <code>openclaw config</code> and add your Anthropic key</li>
+                        <li><strong>Slack not connected:</strong> Check your tokens are correct (xoxb- and xapp-)</li>
+                    </ul>
+                </div>
+                
+                <h4>🧪 Test It in Slack!</h4>
                 <ol>
                     <li>Open Slack on your phone or computer</li>
                     <li>Find your bot in Direct Messages (it should appear now)</li>
@@ -943,9 +990,9 @@ Ready to help me build this?</p>
                 <h4>🤖 Let Your AI Handle the Rest!</h4>
                 <p>Now that Slack is working, <strong>you can stop using the Terminal forever.</strong> Just chat with your AI and tell it what you want:</p>
                 <ul>
-                    <li><em>"Here's my Claude API key: sk-ant-... — please save it to my config"</em></li>
                     <li><em>"Connect my Google Workspace email: me@mydomain.com"</em></li>
                     <li><em>"Set up my OpenAI key for voice transcription"</em></li>
+                    <li><em>"Help me set up a morning briefing routine"</em></li>
                 </ul>
                 <p>Your AI will run the commands for you. No more Terminal needed! 🎊</p>
             </div>
