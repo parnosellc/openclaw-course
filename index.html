@@ -545,20 +545,73 @@ I'll share screenshots of what I'm seeing. Ready to help me get started?</p>
             </div>
             
             <div class="step">
-                <h3><span class="step-number">2</span> Connect with Tailscale</h3>
-                <p>Tailscale creates a secure private tunnel to your VPS.</p>
+                <h3><span class="step-number">2</span> Install Tailscale on Your Computer</h3>
+                <p>Tailscale creates a secure private connection between your computer and your VPS. Think of it like a secret tunnel only you can use.</p>
                 <ol>
-                    <li>Install Tailscale from <a href="https://tailscale.com/download" target="_blank">tailscale.com/download</a></li>
-                    <li>Sign in with Google or your preferred method</li>
-                    <li>SSH into your VPS and run:</li>
+                    <li>Go to <a href="https://tailscale.com/download" target="_blank">tailscale.com/download</a></li>
+                    <li>Download and install Tailscale for your computer (Mac or Windows)</li>
+                    <li>Open Tailscale and sign in with Google (or another method)</li>
+                    <li>You'll see a small Tailscale icon in your menu bar — that means it's running</li>
                 </ol>
-                <pre>curl -fsSL https://tailscale.com/install.sh | sh
-tailscale up</pre>
-                <div class="checkpoint">✅ <strong>Checkpoint:</strong> Your VPS appears in your Tailscale device list.</div>
+                <div class="checkpoint">✅ <strong>Checkpoint:</strong> Tailscale icon appears in your menu bar and shows "Connected"</div>
             </div>
             
             <div class="step">
-                <h3><span class="step-number">3</span> Set Up Google Workspace</h3>
+                <h3><span class="step-number">3</span> Connect to Your VPS (The Terminal Part)</h3>
+                <p>Now we're going to connect to your VPS using something called the <strong>Terminal</strong>. Don't worry — I'll tell you exactly what to type.</p>
+                
+                <h4>🖥️ First, Open the Terminal</h4>
+                <p><strong>On Mac:</strong></p>
+                <ol>
+                    <li>Press <code>Cmd + Space</code> to open Spotlight</li>
+                    <li>Type <code>Terminal</code></li>
+                    <li>Press Enter — a black/white window will open</li>
+                </ol>
+                <p><strong>On Windows:</strong></p>
+                <ol>
+                    <li>Press the Windows key</li>
+                    <li>Type <code>PowerShell</code></li>
+                    <li>Click on "Windows PowerShell" — a blue window will open</li>
+                </ol>
+                
+                <h4>🔍 Find Your VPS IP Address</h4>
+                <ol>
+                    <li>Go back to your Hostinger dashboard</li>
+                    <li>Click on your VPS</li>
+                    <li>Look for <strong>"IP Address"</strong> — it looks like <code>123.456.78.90</code></li>
+                    <li>Copy it (you'll need it in a moment)</li>
+                </ol>
+                
+                <h4>🔌 Connect to Your VPS</h4>
+                <p>In your Terminal/PowerShell window, type this (replace the IP with YOUR IP address):</p>
+                <pre>ssh root@YOUR_IP_ADDRESS</pre>
+                <p>For example, if your IP is 185.199.52.44, you'd type:</p>
+                <pre>ssh root@185.199.52.44</pre>
+                <p>Press Enter.</p>
+                
+                <h4>🔐 What Happens Next</h4>
+                <p>You might see a message like:</p>
+                <pre>The authenticity of host can't be established. Are you sure you want to continue? (yes/no)</pre>
+                <p>Type <code>yes</code> and press Enter.</p>
+                <p>Then it will ask for your password — this is the password Hostinger gave you (check your email or the Hostinger dashboard under "Root Password").</p>
+                <p><em>Note: When you type your password, nothing will appear on screen — that's normal! Just type it and press Enter.</em></p>
+                
+                <div class="checkpoint">✅ <strong>Checkpoint:</strong> You see something like <code>root@your-server:~#</code> — you're in!</div>
+            </div>
+            
+            <div class="step">
+                <h3><span class="step-number">4</span> Install Tailscale on Your VPS</h3>
+                <p>Now that you're connected to your VPS, let's install Tailscale on it too. Copy and paste this command:</p>
+                <pre>curl -fsSL https://tailscale.com/install.sh | sh</pre>
+                <p>Press Enter and wait for it to finish (about 30 seconds).</p>
+                <p>Then run:</p>
+                <pre>tailscale up</pre>
+                <p>It will show you a link. Copy that link and open it in your browser. Click "Connect" to authorize your VPS.</p>
+                <div class="checkpoint">✅ <strong>Checkpoint:</strong> Your VPS now appears in the Tailscale app on your computer!</div>
+            </div>
+            
+            <div class="step">
+                <h3><span class="step-number">5</span> Set Up Google Workspace</h3>
                 <ol>
                     <li>Go to <a href="https://workspace.google.com" target="_blank">workspace.google.com</a></li>
                     <li>Click "Get Started" and choose <strong>Business Starter</strong></li>
@@ -570,7 +623,7 @@ tailscale up</pre>
             </div>
             
             <div class="step">
-                <h3><span class="step-number">4</span> Set Up Slack</h3>
+                <h3><span class="step-number">6</span> Set Up Slack</h3>
                 <ol>
                     <li>Go to <a href="https://slack.com" target="_blank">slack.com</a> and create a new workspace</li>
                     <li>Name it "My AI Assistant" or "[YourName] HQ"</li>
@@ -580,7 +633,7 @@ tailscale up</pre>
             </div>
             
             <div class="step">
-                <h3><span class="step-number">5</span> Get Your API Keys</h3>
+                <h3><span class="step-number">7</span> Get Your API Keys</h3>
                 <p>Get keys from each service and save them somewhere safe:</p>
                 <ul>
                     <li><strong>Claude:</strong> <a href="https://console.anthropic.com" target="_blank">console.anthropic.com</a></li>
@@ -591,17 +644,40 @@ tailscale up</pre>
             </div>
             
             <div class="step">
-                <h3><span class="step-number">6</span> Configure OpenClaw</h3>
+                <h3><span class="step-number">8</span> Configure OpenClaw</h3>
+                
+                <h4>🔌 Connect to Your VPS Again</h4>
+                <p>If you closed the Terminal earlier, open it again and connect using the Tailscale IP this time (more reliable):</p>
                 <ol>
-                    <li>SSH into your VPS (use Tailscale IP)</li>
-                    <li>Run the setup wizard:</li>
+                    <li>Open the Tailscale app on your computer</li>
+                    <li>Find your VPS in the list — copy its Tailscale IP (looks like <code>100.x.x.x</code>)</li>
+                    <li>In Terminal, type: <code>ssh root@100.x.x.x</code> (use YOUR Tailscale IP)</li>
                 </ol>
+                
+                <h4>🧙 Run the Setup Wizard</h4>
+                <p>Once connected, type:</p>
                 <pre>openclaw onboard</pre>
-                <p>Then connect Slack:</p>
+                <p>The wizard will ask you questions. Have your API keys ready (from Step 7). It will ask for:</p>
+                <ul>
+                    <li>Your Claude/Anthropic key</li>
+                    <li>Your OpenAI key</li>
+                    <li>Your Gemini key</li>
+                    <li>Your Brave Search key</li>
+                </ul>
+                <p>Just paste each key when asked and press Enter.</p>
+                
+                <h4>💬 Connect Slack</h4>
+                <p>After the wizard finishes, type:</p>
                 <pre>openclaw channels connect slack</pre>
-                <p>And Google Workspace:</p>
+                <p>This will guide you through creating a Slack app and connecting it. Follow the prompts — it will open links in your browser.</p>
+                
+                <h4>📧 Connect Google Workspace</h4>
+                <p>Finally, connect your Google services:</p>
                 <pre>gog auth add youremail@yourdomain.com --services gmail,calendar,drive</pre>
-                <div class="checkpoint">✅ <strong>Checkpoint:</strong> When you type in Slack, your AI responds!</div>
+                <p>(Replace <code>youremail@yourdomain.com</code> with your actual Google Workspace email)</p>
+                <p>A browser window will open asking you to sign in and grant permissions. Click "Allow" for everything.</p>
+                
+                <div class="checkpoint">✅ <strong>Checkpoint:</strong> Open Slack, type "Hello!" in your #general channel — your AI should respond! 🎉</div>
             </div>
         </div>
         
