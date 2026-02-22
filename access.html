@@ -208,7 +208,6 @@
     </div>
     
     <script>
-        // Store submissions in localStorage (for your records, viewable in browser console)
         document.getElementById('accessForm').addEventListener('submit', function(e) {
             e.preventDefault();
             
@@ -217,18 +216,17 @@
                 email: document.getElementById('email').value,
                 occupation: document.getElementById('occupation').value,
                 goal: document.getElementById('goal').value,
-                timestamp: new Date().toISOString()
+                _subject: 'New OpenClaw Course Signup!'
             };
             
-            // Store locally
-            let submissions = JSON.parse(localStorage.getItem('openclaw_submissions') || '[]');
-            submissions.push(formData);
-            localStorage.setItem('openclaw_submissions', JSON.stringify(submissions));
+            // Send to FormSubmit (emails you each submission)
+            fetch('https://formsubmit.co/ajax/michael@awesomely.com', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify(formData)
+            }).catch(err => console.log('Form submit error:', err));
             
-            // Log to console (you can see this in browser dev tools)
-            console.log('New submission:', formData);
-            
-            // Show success card
+            // Show success immediately (don't wait for email)
             document.getElementById('formCard').classList.add('hide');
             document.getElementById('successCard').classList.add('show');
         });
