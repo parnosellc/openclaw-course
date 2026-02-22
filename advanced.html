@@ -166,6 +166,36 @@
             <h2>🧵 Understanding Sessions</h2>
             <p>OpenClaw uses <strong>sessions</strong> to manage conversations. Think of them as separate "threads" of memory.</p>
             
+            <!-- Sessions Diagram -->
+            <svg viewBox="0 0 500 300" style="width: 100%; max-width: 500px; display: block; margin: 20px auto;">
+                <!-- Main Session -->
+                <circle cx="250" cy="150" r="70" fill="#764ba2" opacity="0.9"/>
+                <text x="250" y="145" text-anchor="middle" fill="white" font-size="14" font-weight="bold">MAIN</text>
+                <text x="250" y="165" text-anchor="middle" fill="white" font-size="14" font-weight="bold">SESSION</text>
+                <text x="250" y="185" text-anchor="middle" fill="white" font-size="11">💬 Your DMs</text>
+                
+                <!-- Sub-agent -->
+                <circle cx="100" cy="80" r="45" fill="#667eea" opacity="0.8"/>
+                <text x="100" y="75" text-anchor="middle" fill="white" font-size="11" font-weight="bold">Sub-agent</text>
+                <text x="100" y="92" text-anchor="middle" fill="white" font-size="10">🔍 Research</text>
+                <line x1="145" y1="100" x2="195" y2="130" stroke="#667eea" stroke-width="2" stroke-dasharray="5,5"/>
+                
+                <!-- Cron Job -->
+                <circle cx="400" cy="80" r="45" fill="#667eea" opacity="0.8"/>
+                <text x="400" y="75" text-anchor="middle" fill="white" font-size="11" font-weight="bold">Cron Job</text>
+                <text x="400" y="92" text-anchor="middle" fill="white" font-size="10">⏰ Scheduled</text>
+                <line x1="355" y1="100" x2="305" y2="130" stroke="#667eea" stroke-width="2" stroke-dasharray="5,5"/>
+                
+                <!-- Channel -->
+                <circle cx="100" cy="220" r="45" fill="#667eea" opacity="0.8"/>
+                <text x="100" y="215" text-anchor="middle" fill="white" font-size="11" font-weight="bold">Channel</text>
+                <text x="100" y="232" text-anchor="middle" fill="white" font-size="10">#general</text>
+                <line x1="145" y1="200" x2="195" y2="170" stroke="#667eea" stroke-width="2" stroke-dasharray="5,5"/>
+                
+                <!-- Isolated label -->
+                <text x="400" y="250" text-anchor="middle" fill="#667eea" font-size="12" font-style="italic">Isolated = Cheaper models OK</text>
+            </svg>
+            
             <h3>The Main Session</h3>
             <p>When you DM your bot in Slack, you're in the <strong>main session</strong>. This is your primary conversation — it has full context of your workspace files and conversation history.</p>
             
@@ -202,6 +232,32 @@
         <div class="card" id="workspace">
             <h2>📁 Workspace Files</h2>
             <p>Your AI's personality and memory live in these files. They're loaded every session.</p>
+            
+            <!-- Workspace Diagram -->
+            <svg viewBox="0 0 400 280" style="width: 100%; max-width: 400px; display: block; margin: 20px auto;">
+                <!-- Folder icon -->
+                <rect x="20" y="20" width="360" height="240" rx="10" fill="#f8f9fa" stroke="#667eea" stroke-width="2"/>
+                <text x="40" y="50" fill="#667eea" font-size="14" font-weight="bold">📂 workspace/</text>
+                
+                <!-- Files -->
+                <rect x="50" y="70" width="140" height="35" rx="5" fill="#764ba2"/>
+                <text x="60" y="93" fill="white" font-size="12">🧬 SOUL.md</text>
+                
+                <rect x="210" y="70" width="140" height="35" rx="5" fill="#667eea"/>
+                <text x="220" y="93" fill="white" font-size="12">👤 USER.md</text>
+                
+                <rect x="50" y="115" width="140" height="35" rx="5" fill="#11998e"/>
+                <text x="60" y="138" fill="white" font-size="12">🔧 TOOLS.md</text>
+                
+                <rect x="210" y="115" width="140" height="35" rx="5" fill="#ff6b6b"/>
+                <text x="220" y="138" fill="white" font-size="12">🧠 MEMORY.md</text>
+                
+                <!-- Memory folder -->
+                <rect x="50" y="165" width="300" height="80" rx="5" fill="#fff3cd" stroke="#ffc107"/>
+                <text x="65" y="188" fill="#856404" font-size="12" font-weight="bold">📁 memory/</text>
+                <text x="80" y="210" fill="#856404" font-size="11">📝 2026-02-22.md (today)</text>
+                <text x="80" y="228" fill="#856404" font-size="11">📝 2026-02-21.md (yesterday)</text>
+            </svg>
             
             <div class="file-box">
                 <h4>SOUL.md — Who Your AI Is</h4>
@@ -253,6 +309,36 @@
         <div class="card" id="cron">
             <h2>⏰ Cron Jobs (Scheduled Tasks)</h2>
             <p>Cron jobs let your AI do things automatically on a schedule.</p>
+            
+            <!-- Cron Timeline Diagram -->
+            <svg viewBox="0 0 500 150" style="width: 100%; max-width: 500px; display: block; margin: 20px auto;">
+                <!-- Timeline -->
+                <line x1="30" y1="75" x2="470" y2="75" stroke="#667eea" stroke-width="3"/>
+                
+                <!-- Time markers -->
+                <circle cx="80" cy="75" r="20" fill="#11998e"/>
+                <text x="80" y="80" text-anchor="middle" fill="white" font-size="10" font-weight="bold">7am</text>
+                <text x="80" y="110" text-anchor="middle" fill="#1a1a2e" font-size="10">📧 Email</text>
+                <text x="80" y="125" text-anchor="middle" fill="#1a1a2e" font-size="10">Summary</text>
+                
+                <circle cx="180" cy="75" r="20" fill="#667eea"/>
+                <text x="180" y="80" text-anchor="middle" fill="white" font-size="10" font-weight="bold">12pm</text>
+                <text x="180" y="110" text-anchor="middle" fill="#1a1a2e" font-size="10">📊 Check</text>
+                <text x="180" y="125" text-anchor="middle" fill="#1a1a2e" font-size="10">Stats</text>
+                
+                <circle cx="280" cy="75" r="20" fill="#764ba2"/>
+                <text x="280" y="80" text-anchor="middle" fill="white" font-size="10" font-weight="bold">3pm</text>
+                <text x="280" y="110" text-anchor="middle" fill="#1a1a2e" font-size="10">🔔 Meeting</text>
+                <text x="280" y="125" text-anchor="middle" fill="#1a1a2e" font-size="10">Reminder</text>
+                
+                <circle cx="380" cy="75" r="20" fill="#ff6b6b"/>
+                <text x="380" y="80" text-anchor="middle" fill="white" font-size="10" font-weight="bold">Sun</text>
+                <text x="380" y="110" text-anchor="middle" fill="#1a1a2e" font-size="10">💾 Weekly</text>
+                <text x="380" y="125" text-anchor="middle" fill="#1a1a2e" font-size="10">Backup</text>
+                
+                <!-- Label -->
+                <text x="250" y="30" text-anchor="middle" fill="#667eea" font-size="12" font-weight="bold">Your AI Works While You Sleep 😴</text>
+            </svg>
             
             <h3>Common Use Cases</h3>
             <ul>
@@ -309,11 +395,29 @@
             <p>Your AI will create the folder structure, write the SKILL.md, and add any helper scripts.</p>
             
             <h3>Skill Structure</h3>
-            <pre>skills/
-  my-skill/
-    SKILL.md      ← Instructions for the AI
-    scripts/      ← Optional helper scripts
-    templates/    ← Optional templates</pre>
+            
+            <!-- Skills Diagram -->
+            <svg viewBox="0 0 350 200" style="width: 100%; max-width: 350px; display: block; margin: 20px auto;">
+                <!-- Main folder -->
+                <rect x="20" y="10" width="310" height="180" rx="10" fill="#f8f9fa" stroke="#11998e" stroke-width="2"/>
+                <text x="40" y="40" fill="#11998e" font-size="14" font-weight="bold">📂 skills/my-skill/</text>
+                
+                <!-- SKILL.md - highlighted -->
+                <rect x="50" y="55" width="250" height="40" rx="8" fill="#11998e"/>
+                <text x="70" y="80" fill="white" font-size="13" font-weight="bold">📋 SKILL.md</text>
+                <text x="180" y="80" fill="rgba(255,255,255,0.8)" font-size="11">← The brain!</text>
+                
+                <!-- Scripts folder -->
+                <rect x="50" y="105" width="120" height="35" rx="5" fill="#667eea" opacity="0.7"/>
+                <text x="65" y="127" fill="white" font-size="11">📁 scripts/</text>
+                
+                <!-- Templates folder -->
+                <rect x="180" y="105" width="120" height="35" rx="5" fill="#764ba2" opacity="0.7"/>
+                <text x="195" y="127" fill="white" font-size="11">📁 templates/</text>
+                
+                <!-- Optional label -->
+                <text x="175" y="160" text-anchor="middle" fill="#666" font-size="10" font-style="italic">Optional folders</text>
+            </svg>
             
             <div class="highlight">
                 <strong>Michael's Rule:</strong> "I have downloaded zero pre-configured skills. Build them yourself — takes 2 minutes and they actually fit your workflow."
@@ -331,6 +435,35 @@
         <div class="card" id="costs">
             <h2>💰 Cost Management</h2>
             <p>AI tokens cost money. Here's how to be efficient.</p>
+            
+            <!-- Cost Pyramid Diagram -->
+            <svg viewBox="0 0 400 220" style="width: 100%; max-width: 400px; display: block; margin: 20px auto;">
+                <!-- Pyramid layers -->
+                <!-- Top - Opus -->
+                <polygon points="200,20 260,80 140,80" fill="#764ba2"/>
+                <text x="200" y="60" text-anchor="middle" fill="white" font-size="11" font-weight="bold">OPUS</text>
+                <text x="320" y="55" fill="#764ba2" font-size="10">💎 Complex reasoning</text>
+                <text x="320" y="70" fill="#764ba2" font-size="10">Code, judgment calls</text>
+                
+                <!-- Middle - Sonnet -->
+                <polygon points="140,85 260,85 290,130 110,130" fill="#667eea"/>
+                <text x="200" y="115" text-anchor="middle" fill="white" font-size="12" font-weight="bold">SONNET</text>
+                <text x="340" y="110" fill="#667eea" font-size="10">⚖️ Balanced</text>
+                <text x="340" y="125" fill="#667eea" font-size="10">Most tasks</text>
+                
+                <!-- Bottom - Gemini Flash -->
+                <polygon points="110,135 290,135 330,190 70,190" fill="#11998e"/>
+                <text x="200" y="168" text-anchor="middle" fill="white" font-size="13" font-weight="bold">GEMINI FLASH</text>
+                <text x="365" y="165" fill="#11998e" font-size="10">⚡ Fast & cheap</text>
+                <text x="365" y="180" fill="#11998e" font-size="10">Research, simple</text>
+                
+                <!-- Cost arrow -->
+                <text x="45" y="60" fill="#ff6b6b" font-size="10">$$$</text>
+                <text x="45" y="115" fill="#ff8e53" font-size="10">$$</text>
+                <text x="45" y="170" fill="#11998e" font-size="10">$</text>
+                <line x1="55" y1="40" x2="55" y2="185" stroke="#ccc" stroke-width="1" marker-end="url(#arrow)"/>
+                <text x="30" y="200" fill="#666" font-size="9">Cost</text>
+            </svg>
             
             <h3>Model Tiers</h3>
             <ul>
@@ -389,6 +522,29 @@
         <!-- Day 1 Rules -->
         <div class="card" id="day1">
             <h2>📋 Day 1 Rules for Your AI</h2>
+            
+            <!-- Day 1 Visual -->
+            <svg viewBox="0 0 400 140" style="width: 100%; max-width: 400px; display: block; margin: 20px auto;">
+                <!-- Three pillars -->
+                <rect x="20" y="30" width="110" height="100" rx="10" fill="#667eea"/>
+                <text x="75" y="55" text-anchor="middle" fill="white" font-size="12" font-weight="bold">💰 TOKENS</text>
+                <text x="75" y="75" text-anchor="middle" fill="rgba(255,255,255,0.9)" font-size="9">Offload tasks</text>
+                <text x="75" y="90" text-anchor="middle" fill="rgba(255,255,255,0.9)" font-size="9">Limit auto-checks</text>
+                <text x="75" y="105" text-anchor="middle" fill="rgba(255,255,255,0.9)" font-size="9">Monitor context</text>
+                
+                <rect x="145" y="30" width="110" height="100" rx="10" fill="#11998e"/>
+                <text x="200" y="55" text-anchor="middle" fill="white" font-size="12" font-weight="bold">🧠 MEMORY</text>
+                <text x="200" y="75" text-anchor="middle" fill="rgba(255,255,255,0.9)" font-size="9">Files = memory</text>
+                <text x="200" y="90" text-anchor="middle" fill="rgba(255,255,255,0.9)" font-size="9">Write it down</text>
+                <text x="200" y="105" text-anchor="middle" fill="rgba(255,255,255,0.9)" font-size="9">No mental notes</text>
+                
+                <rect x="270" y="30" width="110" height="100" rx="10" fill="#ff6b6b"/>
+                <text x="325" y="55" text-anchor="middle" fill="white" font-size="12" font-weight="bold">🔒 SAFETY</text>
+                <text x="325" y="75" text-anchor="middle" fill="rgba(255,255,255,0.9)" font-size="9">Check docs first</text>
+                <text x="325" y="90" text-anchor="middle" fill="rgba(255,255,255,0.9)" font-size="9">Ask before send</text>
+                <text x="325" y="105" text-anchor="middle" fill="rgba(255,255,255,0.9)" font-size="9">Email ≠ commands</text>
+            </svg>
+            
             <p>Paste these into your first conversation to establish good habits:</p>
             
             <div class="highlight" style="background: #1a1a2e;">
