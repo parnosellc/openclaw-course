@@ -693,26 +693,32 @@ Ready to help me build this?</p>
             <h2>🚀 Step-by-Step Setup</h2>
             
             <div class="step">
-                <h3><span class="step-number">1</span> Create a Fresh Google Account</h3>
-                <p>Before anything else, create a <strong>brand new Google account</strong> just for your AI setup. This keeps everything organized and separate from your personal stuff.</p>
+                <h3><span class="step-number">1</span> Set Up Google Workspace</h3>
+                <p>You need <strong>Google Workspace</strong> (the paid business version of Google), not a free Gmail account. Here's why:</p>
                 
-                <ol>
-                    <li>Go to <a href="https://accounts.google.com/signup" target="_blank">accounts.google.com/signup</a></li>
-                    <li>Create a new account (e.g., <code>yourname.ai@gmail.com</code> or <code>yourname.openclaw@gmail.com</code>)</li>
-                    <li>Use a strong, unique password</li>
-                    <li><strong>Write it down somewhere safe!</strong></li>
-                </ol>
-                
-                <div class="highlight" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
-                    <strong>Why a separate account?</strong>
+                <div class="highlight" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); margin-bottom: 20px;">
+                    <strong>🤖 Your AI Gets Its Own Identity</strong>
+                    <p style="margin: 10px 0 0 0;">With Google Workspace, you'll create <strong>two email addresses</strong> on your own domain:</p>
                     <ul style="margin-bottom: 0;">
-                        <li>All your AI invoices (Hostinger, Anthropic, etc.) go to one place</li>
-                        <li>Your AI has access to this email — keep it separate from personal</li>
-                        <li>Easy to track costs and manage everything in one dashboard</li>
+                        <li><strong>You (admin):</strong> <code>mike@mycompany.com</code></li>
+                        <li><strong>Your AI:</strong> <code>james@mycompany.com</code></li>
                     </ul>
+                    <p style="margin: 10px 0 0 0;">Your AI gets its own email inbox, its own Google Drive (with tons of space), and its own calendar. All invoices and receipts go to your admin account — nice and organized.</p>
                 </div>
                 
-                <div class="checkpoint">✅ <strong>Checkpoint:</strong> You're logged into your new Google account in your browser.</div>
+                <h4>Sign up now:</h4>
+                <ol>
+                    <li>Go to <a href="https://workspace.google.com" target="_blank"><strong>workspace.google.com</strong></a></li>
+                    <li>Click <strong>"Get Started"</strong></li>
+                    <li>Choose <strong>Business Starter</strong> (~$7/month per user)</li>
+                    <li>You'll need a domain name — you can buy one through Google during signup, or use one you already own</li>
+                    <li>Create your first user (this is YOU, the admin)</li>
+                    <li>Complete the purchase</li>
+                </ol>
+                
+                <p><strong>Don't worry about the full setup yet</strong> — we'll configure everything (creating your AI's account, connecting it to OpenClaw) in Step 6. For now, just get Workspace running.</p>
+                
+                <div class="checkpoint">✅ <strong>Checkpoint:</strong> You have Google Workspace and can log in at <a href="https://admin.google.com" target="_blank">admin.google.com</a></div>
             </div>
             
             <div class="step">
@@ -816,15 +822,28 @@ Ready to help me build this?</p>
             </div>
             
             <div class="step">
-                <h3><span class="step-number">6</span> Set Up Google Workspace</h3>
+                <h3><span class="step-number">6</span> Create Your AI's Google Account</h3>
+                <p>Now let's create an email address for your AI. This gives your AI its own inbox, Drive, and calendar.</p>
+                
+                <h4>6a. Add a New User for Your AI</h4>
                 <ol>
-                    <li>Go to <a href="https://workspace.google.com" target="_blank">workspace.google.com</a></li>
-                    <li>Click "Get Started" and choose <strong>Business Starter</strong></li>
-                    <li>Buy or connect a domain name</li>
-                    <li>Create your first user</li>
-                    <li>Verify your domain</li>
+                    <li>Go to <a href="https://admin.google.com" target="_blank"><strong>admin.google.com</strong></a> (log in as your admin account)</li>
+                    <li>Click <strong>Directory</strong> → <strong>Users</strong></li>
+                    <li>Click <strong>Add new user</strong></li>
+                    <li>Fill in the details:
+                        <ul>
+                            <li><strong>First name:</strong> James (or whatever you want to call your AI)</li>
+                            <li><strong>Last name:</strong> AI (or your last name)</li>
+                            <li><strong>Email:</strong> james@yourdomain.com</li>
+                        </ul>
+                    </li>
+                    <li>Set a password and <strong>write it down</strong></li>
+                    <li>Click <strong>Add New User</strong></li>
                 </ol>
-                <div class="checkpoint">✅ <strong>Checkpoint:</strong> You can log into your new Google Workspace email.</div>
+                
+                <div class="checkpoint">✅ <strong>Checkpoint:</strong> You can log into <code>james@yourdomain.com</code> at <a href="https://mail.google.com" target="_blank">mail.google.com</a></div>
+                
+                <p><strong>That's it for now!</strong> Your AI will help you connect everything else (OAuth, API access) once it's running. Just get the account created.</p>
             </div>
             
             <div class="step">
