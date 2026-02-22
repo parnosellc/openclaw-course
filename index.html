@@ -618,30 +618,36 @@ I'll share screenshots of what I'm seeing. Ready to help me get started?</p>
             
             <div class="instructions-box">
                 <h4>📋 Paste This Context Next:</h4>
-                <p style="font-family: monospace; white-space: pre-wrap; font-size: 0.9em;">Here's what we're building and the steps involved:
+                <p style="font-family: monospace; white-space: pre-wrap; font-size: 0.85em;">Here's the full picture of what we're setting up:
 
-GOAL: Set up OpenClaw — a personal AI assistant that runs 24/7 on a cloud server. It will:
-- Chat with me through Slack
-- Read/summarize my emails
-- Manage my calendar
-- Remember everything I tell it
-- Run tasks even when I'm asleep
+=== THE GOAL ===
+Build a personal AI assistant (OpenClaw) that runs 24/7 on a cloud server. I'll chat with it through Slack, and it will help me with email, calendar, research, and remember everything I tell it.
 
-THE SETUP STEPS:
-1. ✅ Hostinger VPS — rent a cloud server with OpenClaw pre-installed
-2. ⬜ Tailscale — secure tunnel to access my server
-3. ⬜ Google Workspace — email/calendar for the AI
-4. ⬜ Slack — chat interface (need to create a Slack App with bot tokens)
-5. ⬜ API Keys — Claude (brain), OpenAI (voice), Brave (search)
-6. ⬜ Connect everything via `openclaw config` command
+=== THE ARCHITECTURE ===
+• HOSTINGER VPS — A rented cloud server running OpenClaw (using their one-click Docker template)
+• TAILSCALE — Creates a secure private tunnel so I can SSH into my server safely
+• SLACK BOT — My chat interface. I'm creating a Slack App at api.slack.com/apps that connects to OpenClaw
+• GOOGLE WORKSPACE — Email + Calendar + Google Drive for the AI to read/write
+• AI MODELS — Claude (the brain), OpenAI Whisper (voice transcription), Gemini (cheaper tasks), Brave Search (web search)
 
-KEY INFO:
-- Slack needs TWO tokens: App Token (xapp-...) and Bot Token (xoxb-...)
-- Created at api.slack.com/apps
-- Socket Mode must be enabled
-- The `openclaw config` command is an interactive menu
+=== SLACK BOT SETUP (the tricky part) ===
+I need to create a Slack App with:
+• Socket Mode enabled (for secure communication)
+• Bot Token Scopes (permissions like chat:write, channels:history, im:history)
+• Event Subscriptions (message.channels, message.im, app_mention)
+• Two tokens to save: App Token (xapp-...) and Bot Token (xoxb-...)
 
-I'll check off steps as we complete them. Let's start!</p>
+=== HOW IT CONNECTS ===
+1. OpenClaw runs on Hostinger VPS
+2. I connect to VPS via Tailscale (secure tunnel)
+3. Run `openclaw config` → Channels → Slack → paste my tokens
+4. OpenClaw connects to Slack using Socket Mode
+5. I message my bot in Slack → OpenClaw receives it → Claude thinks → responds
+
+=== WHAT I NEED HELP WITH ===
+Walking through each step, troubleshooting errors, and understanding what's happening. I'll share screenshots when I'm stuck.
+
+Ready to help me build this?</p>
             </div>
             
             <h3>📸 Use Screenshots Liberally</h3>
