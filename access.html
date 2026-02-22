@@ -157,6 +157,11 @@
                 </div>
                 
                 <div class="form-group">
+                    <label for="occupation">What's your occupation?</label>
+                    <input type="text" id="occupation" name="occupation" required placeholder="Marketing Manager, Developer, Entrepreneur...">
+                </div>
+                
+                <div class="form-group">
                     <label for="goal">What do you want to build with OpenClaw?</label>
                     <textarea id="goal" name="goal" required placeholder="I want to build a personal AI assistant that helps me with..."></textarea>
                 </div>
@@ -197,6 +202,7 @@
             const formData = {
                 name: document.getElementById('name').value,
                 email: document.getElementById('email').value,
+                occupation: document.getElementById('occupation').value,
                 goal: document.getElementById('goal').value,
                 timestamp: new Date().toISOString()
             };
