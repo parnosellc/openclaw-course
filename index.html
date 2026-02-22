@@ -857,13 +857,17 @@ I'll share screenshots of what I'm seeing. Ready to help me get started?</p>
                 
                 <h4>💬 Connect Slack (The Important Part)</h4>
                 <p>Once you're connected, type this command:</p>
-                <pre>openclaw channels connect slack</pre>
-                <p>The wizard will ask for your two Slack tokens (from Step 6):</p>
-                <ul>
-                    <li><strong>App Token</strong> — starts with <code>xapp-</code></li>
-                    <li><strong>Bot Token</strong> — starts with <code>xoxb-</code></li>
-                </ul>
-                <p>Just paste each token when asked and press Enter. That's it!</p>
+                <pre>openclaw config</pre>
+                <p>This opens an interactive menu. Use arrow keys to navigate:</p>
+                <ol>
+                    <li>Select <strong>Channels</strong></li>
+                    <li>Select <strong>Slack</strong></li>
+                    <li>Paste your <strong>Bot Token</strong> (<code>xoxb-...</code>) when asked</li>
+                    <li>Paste your <strong>App Token</strong> (<code>xapp-...</code>) when asked</li>
+                    <li>Press Enter through any other prompts (defaults are fine)</li>
+                    <li>Select <strong>Save</strong> or <strong>Continue</strong> when done</li>
+                </ol>
+                <p>The wizard will restart OpenClaw automatically.</p>
                 
                 <h4>🧪 Test It!</h4>
                 <ol>
