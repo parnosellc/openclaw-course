@@ -839,40 +839,50 @@ I'll share screenshots of what I'm seeing. Ready to help me get started?</p>
             </div>
             
             <div class="step">
-                <h3><span class="step-number">8</span> Configure OpenClaw</h3>
+                <h3><span class="step-number">8</span> Configure OpenClaw (Last Terminal Step!)</h3>
                 
-                <h4>🔌 Connect to Your VPS Again</h4>
-                <p>If you closed the Terminal earlier, open it again and connect using the Tailscale IP this time (more reliable):</p>
+                <div class="highlight" style="background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);">
+                    🎉 <strong>Good news:</strong> This is the LAST time you'll need to use the Terminal. After this, you can talk to your AI through Slack and it will help you with everything else!
+                </div>
+                
+                <h4>🔌 Connect to Your VPS One More Time</h4>
+                <p>Open Terminal (Mac) or PowerShell (Windows) and connect using your Tailscale IP:</p>
                 <ol>
                     <li>Open the Tailscale app on your computer</li>
                     <li>Find your VPS in the list — copy its Tailscale IP (looks like <code>100.x.x.x</code>)</li>
-                    <li>In Terminal, type: <code>ssh root@100.x.x.x</code> (use YOUR Tailscale IP)</li>
+                    <li>Type this command (replace with YOUR Tailscale IP):</li>
+                </ol>
+                <pre>ssh root@100.x.x.x</pre>
+                <p><em>Remember: When typing your password, nothing appears on screen — that's normal!</em></p>
+                
+                <h4>💬 Connect Slack (The Important Part)</h4>
+                <p>Once you're connected, type this command:</p>
+                <pre>openclaw channels connect slack</pre>
+                <p>The wizard will ask for your two Slack tokens (from Step 6):</p>
+                <ul>
+                    <li><strong>App Token</strong> — starts with <code>xapp-</code></li>
+                    <li><strong>Bot Token</strong> — starts with <code>xoxb-</code></li>
+                </ul>
+                <p>Just paste each token when asked and press Enter. That's it!</p>
+                
+                <h4>🧪 Test It!</h4>
+                <ol>
+                    <li>Open Slack on your phone or computer</li>
+                    <li>Find your bot in Direct Messages (it should appear now)</li>
+                    <li>Send a message: <strong>"Hello! Are you there?"</strong></li>
+                    <li>Wait a few seconds — your AI should respond! 🎉</li>
                 </ol>
                 
-                <h4>🧙 Run the Setup Wizard</h4>
-                <p>Once connected, type:</p>
-                <pre>openclaw onboard</pre>
-                <p>The wizard will ask you questions. Have your API keys ready (from Step 7). It will ask for:</p>
+                <div class="checkpoint">✅ <strong>Checkpoint:</strong> Your AI responds in Slack. You're connected!</div>
+                
+                <h4>🤖 Let Your AI Handle the Rest!</h4>
+                <p>Now that Slack is working, <strong>you can stop using the Terminal forever.</strong> Just chat with your AI and tell it what you want:</p>
                 <ul>
-                    <li>Your Claude/Anthropic key</li>
-                    <li>Your OpenAI key</li>
-                    <li>Your Gemini key</li>
-                    <li>Your Brave Search key</li>
+                    <li><em>"Here's my Claude API key: sk-ant-... — please save it to my config"</em></li>
+                    <li><em>"Connect my Google Workspace email: me@mydomain.com"</em></li>
+                    <li><em>"Set up my OpenAI key for voice transcription"</em></li>
                 </ul>
-                <p>Just paste each key when asked and press Enter.</p>
-                
-                <h4>💬 Connect Slack</h4>
-                <p>After the wizard finishes, type:</p>
-                <pre>openclaw channels connect slack</pre>
-                <p>This will guide you through creating a Slack app and connecting it. Follow the prompts — it will open links in your browser.</p>
-                
-                <h4>📧 Connect Google Workspace</h4>
-                <p>Finally, connect your Google services:</p>
-                <pre>gog auth add youremail@yourdomain.com --services gmail,calendar,drive</pre>
-                <p>(Replace <code>youremail@yourdomain.com</code> with your actual Google Workspace email)</p>
-                <p>A browser window will open asking you to sign in and grant permissions. Click "Allow" for everything.</p>
-                
-                <div class="checkpoint">✅ <strong>Checkpoint:</strong> Open Slack, type "Hello!" in your #general channel — your AI should respond! 🎉</div>
+                <p>Your AI will run the commands for you. No more Terminal needed! 🎊</p>
             </div>
         </div>
         
