@@ -282,6 +282,62 @@
             width: 100%;
         }
 
+        /* Table of Contents */
+        .toc-card {
+            background: white;
+            padding: 30px;
+        }
+        
+        .toc-card h2 {
+            text-align: center;
+            margin-bottom: 25px;
+            border-bottom: none;
+        }
+        
+        .toc-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 12px;
+        }
+        
+        .toc-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 15px 18px;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 12px;
+            text-decoration: none;
+            color: #1a1a2e;
+            transition: all 0.2s ease;
+            border-left: 4px solid transparent;
+        }
+        
+        .toc-item:hover {
+            transform: translateX(5px);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-left-color: #ff6b6b;
+        }
+        
+        .toc-item .toc-emoji {
+            font-size: 1.4em;
+        }
+        
+        .toc-item .toc-text {
+            font-weight: 500;
+            font-size: 0.95em;
+        }
+        
+        .toc-item.toc-main {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ff8e53 100%);
+            color: white;
+        }
+        
+        .toc-item.toc-main:hover {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
     </style>
 </head>
 <body>
@@ -294,8 +350,51 @@
             <img src="images/header-image.jpg" alt="OpenClaw Mascot" class="header-image">
         </div>
         
+        <!-- Table of Contents -->
+        <div class="card toc-card">
+            <h2>📑 Jump To</h2>
+            <div class="toc-grid">
+                <a href="#what-youre-building" class="toc-item">
+                    <span class="toc-emoji">🎯</span>
+                    <span class="toc-text">What You're Building</span>
+                </a>
+                <a href="#how-it-works" class="toc-item">
+                    <span class="toc-emoji">🧠</span>
+                    <span class="toc-text">How It Works</span>
+                </a>
+                <a href="#accounts" class="toc-item">
+                    <span class="toc-emoji">📋</span>
+                    <span class="toc-text">Accounts Needed</span>
+                </a>
+                <a href="#costs" class="toc-item">
+                    <span class="toc-emoji">💰</span>
+                    <span class="toc-text">Cost Estimate</span>
+                </a>
+                <a href="#setup-assistant" class="toc-item">
+                    <span class="toc-emoji">🤖</span>
+                    <span class="toc-text">Setup Assistant</span>
+                </a>
+                <a href="#setup-steps" class="toc-item toc-main">
+                    <span class="toc-emoji">🚀</span>
+                    <span class="toc-text">Step-by-Step Setup</span>
+                </a>
+                <a href="#first-conversation" class="toc-item">
+                    <span class="toc-emoji">📝</span>
+                    <span class="toc-text">First Conversation</span>
+                </a>
+                <a href="#skills-trap" class="toc-item">
+                    <span class="toc-emoji">⚠️</span>
+                    <span class="toc-text">Skills Trap Warning</span>
+                </a>
+                <a href="#next-steps" class="toc-item">
+                    <span class="toc-emoji">🎯</span>
+                    <span class="toc-text">What's Next</span>
+                </a>
+            </div>
+        </div>
+        
         <!-- What You're Building -->
-        <div class="card">
+        <div class="card" id="what-youre-building">
             <h2>🎯 What You're About to Build</h2>
             <p>Imagine having a brilliant assistant who:</p>
             <ul class="emoji-list">
@@ -319,7 +418,7 @@
         </div>
         
         <!-- How It Works -->
-        <div class="card">
+        <div class="card" id="how-it-works">
             <h2>🧠 How This Actually Works</h2>
             <p>Let's break down what we're building in plain English.</p>
             
@@ -364,7 +463,7 @@
         </div>
         
         <!-- Accounts Needed -->
-        <div class="card">
+        <div class="card" id="accounts">
             <h2>📋 Accounts You'll Need</h2>
             <p>Before we start the setup, create these accounts. <strong>Do this first</strong> — it'll make the setup much smoother.</p>
             
@@ -425,7 +524,7 @@
         </div>
         
         <!-- Cost Estimate -->
-        <div class="card">
+        <div class="card" id="costs">
             <h2>💰 Month 1 Cost Estimate</h2>
             <table class="cost-table">
                 <tr>
@@ -483,7 +582,7 @@
         <!-- Setup Steps -->
         
         <!-- Your Setup Assistant -->
-        <div class="card">
+        <div class="card" id="setup-assistant">
             <h2>🤖 Your Setup Assistant (Important!)</h2>
             
             <div class="warning">
@@ -529,7 +628,7 @@ I'll share screenshots of what I'm seeing. Ready to help me get started?</p>
             </div>
         </div>
         
-        <div class="card">
+        <div class="card" id="setup-steps">
             <h2>🚀 Step-by-Step Setup</h2>
             
             <div class="step">
@@ -778,8 +877,8 @@ I'll share screenshots of what I'm seeing. Ready to help me get started?</p>
         </div>
         
         <!-- First Conversation -->
-        <div class="card">
-            <h2>📝 Step 7: Your First Conversation</h2>
+        <div class="card" id="first-conversation">
+            <h2>📝 Your First Conversation</h2>
             <p>Paste these instructions into your first message to teach your AI the ground rules:</p>
             
             <div class="instructions-box">
@@ -801,7 +900,7 @@ I'll share screenshots of what I'm seeing. Ready to help me get started?</p>
         </div>
         
         <!-- Skills Trap Warning -->
-        <div class="card">
+        <div class="card" id="skills-trap">
             <div class="warning">
                 <h3>⚠️ The Skills Trap</h3>
                 <p>You might see videos about "downloading skills" for OpenClaw. <strong>Be very careful.</strong></p>
@@ -823,7 +922,7 @@ I'll share screenshots of what I'm seeing. Ready to help me get started?</p>
         </div>
         
         <!-- What to Do Next -->
-        <div class="card">
+        <div class="card" id="next-steps">
             <h2>🎯 What to Do Next</h2>
             <ol>
                 <li><strong>Introduce yourself</strong> — Tell your AI about you, your work, your preferences</li>
