@@ -614,6 +614,36 @@ When helping me with code, configs, or technical setup:
 I'll share screenshots of what I'm seeing. Ready to help me get started?</p>
             </div>
             
+            <p style="margin: 20px 0;"><strong>Then paste this context so Claude knows the full picture:</strong></p>
+            
+            <div class="instructions-box">
+                <h4>📋 Paste This Context Next:</h4>
+                <p style="font-family: monospace; white-space: pre-wrap; font-size: 0.9em;">Here's what we're building and the steps involved:
+
+GOAL: Set up OpenClaw — a personal AI assistant that runs 24/7 on a cloud server. It will:
+- Chat with me through Slack
+- Read/summarize my emails
+- Manage my calendar
+- Remember everything I tell it
+- Run tasks even when I'm asleep
+
+THE SETUP STEPS:
+1. ✅ Hostinger VPS — rent a cloud server with OpenClaw pre-installed
+2. ⬜ Tailscale — secure tunnel to access my server
+3. ⬜ Google Workspace — email/calendar for the AI
+4. ⬜ Slack — chat interface (need to create a Slack App with bot tokens)
+5. ⬜ API Keys — Claude (brain), OpenAI (voice), Brave (search)
+6. ⬜ Connect everything via `openclaw config` command
+
+KEY INFO:
+- Slack needs TWO tokens: App Token (xapp-...) and Bot Token (xoxb-...)
+- Created at api.slack.com/apps
+- Socket Mode must be enabled
+- The `openclaw config` command is an interactive menu
+
+I'll check off steps as we complete them. Let's start!</p>
+            </div>
+            
             <h3>📸 Use Screenshots Liberally</h3>
             <p>Whenever you're stuck or see an error:</p>
             <ol>
