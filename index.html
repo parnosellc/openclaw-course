@@ -634,13 +634,98 @@ I'll share screenshots of what I'm seeing. Ready to help me get started?</p>
             </div>
             
             <div class="step">
-                <h3><span class="step-number">6</span> Set Up Slack</h3>
+                <h3><span class="step-number">6</span> Set Up Slack (The Hardest Part!)</h3>
+                <p>This is the trickiest step. Take your time — once it's done, it's done forever.</p>
+                
+                <h4>6a. Create Your Slack Workspace</h4>
                 <ol>
                     <li>Go to <a href="https://slack.com" target="_blank">slack.com</a> and create a new workspace</li>
                     <li>Name it "My AI Assistant" or "[YourName] HQ"</li>
-                    <li>Keep this tab open</li>
+                    <li>Skip inviting others for now</li>
                 </ol>
-                <div class="checkpoint">✅ <strong>Checkpoint:</strong> Empty Slack workspace ready.</div>
+                
+                <h4>6b. Create a Slack App (This is the Bot)</h4>
+                <p>Your AI needs a "bot" to talk through. Here's how to create one:</p>
+                <ol>
+                    <li>Go to <a href="https://api.slack.com/apps" target="_blank" style="color: #667eea; font-weight: bold;">api.slack.com/apps</a></li>
+                    <li>Click <strong>"Create New App"</strong></li>
+                    <li>Choose <strong>"From scratch"</strong></li>
+                    <li>Name it something like "My AI" or "OpenClaw Bot"</li>
+                    <li>Select your workspace from the dropdown</li>
+                    <li>Click <strong>"Create App"</strong></li>
+                </ol>
+                
+                <h4>6c. Enable Socket Mode</h4>
+                <p>Socket Mode lets your bot communicate securely without a public URL.</p>
+                <ol>
+                    <li>In the left sidebar, click <strong>"Socket Mode"</strong></li>
+                    <li>Toggle <strong>"Enable Socket Mode"</strong> to ON</li>
+                    <li>Give your token a name (like "openclaw-token")</li>
+                    <li>Click <strong>"Generate"</strong></li>
+                    <li><strong>Copy this token</strong> (starts with <code>xapp-</code>) — save it somewhere safe!</li>
+                </ol>
+                
+                <h4>6d. Set Up Bot Permissions (OAuth & Permissions)</h4>
+                <p>Tell Slack what your bot is allowed to do:</p>
+                <ol>
+                    <li>In the left sidebar, click <strong>"OAuth & Permissions"</strong></li>
+                    <li>Scroll down to <strong>"Scopes"</strong></li>
+                    <li>Under <strong>"Bot Token Scopes"</strong>, click "Add an OAuth Scope"</li>
+                    <li>Add these scopes (search and add each one):
+                        <ul>
+                            <li><code>app_mentions:read</code> — See when someone @mentions your bot</li>
+                            <li><code>channels:history</code> — Read messages in public channels</li>
+                            <li><code>channels:read</code> — See channel info</li>
+                            <li><code>chat:write</code> — Send messages</li>
+                            <li><code>groups:history</code> — Read messages in private channels</li>
+                            <li><code>groups:read</code> — See private channel info</li>
+                            <li><code>im:history</code> — Read direct messages</li>
+                            <li><code>im:read</code> — See DM info</li>
+                            <li><code>im:write</code> — Send DMs</li>
+                            <li><code>users:read</code> — See user info</li>
+                        </ul>
+                    </li>
+                </ol>
+                
+                <h4>6e. Set Up Event Subscriptions</h4>
+                <p>Tell Slack which events to send to your bot:</p>
+                <img src="images/slack-events.png" alt="Slack Event Subscriptions" class="section-image" style="max-width: 700px;">
+                <ol>
+                    <li>In the left sidebar, click <strong>"Event Subscriptions"</strong></li>
+                    <li>Toggle <strong>"Enable Events"</strong> to ON</li>
+                    <li>You'll see a note about Socket Mode — that's good!</li>
+                    <li>Click <strong>"Subscribe to bot events"</strong> to expand it</li>
+                    <li>Click "Add Bot User Event" and add:
+                        <ul>
+                            <li><code>app_mention</code></li>
+                            <li><code>message.channels</code></li>
+                            <li><code>message.groups</code></li>
+                            <li><code>message.im</code></li>
+                        </ul>
+                    </li>
+                    <li>Click <strong>"Save Changes"</strong> at the bottom</li>
+                </ol>
+                
+                <h4>6f. Install the App to Your Workspace</h4>
+                <ol>
+                    <li>In the left sidebar, click <strong>"Install App"</strong></li>
+                    <li>Click <strong>"Install to Workspace"</strong></li>
+                    <li>Click <strong>"Allow"</strong> on the permissions screen</li>
+                    <li>You'll see a <strong>"Bot User OAuth Token"</strong> (starts with <code>xoxb-</code>)</li>
+                    <li><strong>Copy this token</strong> — this is your main bot token!</li>
+                </ol>
+                
+                <div class="warning">
+                    <h3>🔐 Save These Two Tokens!</h3>
+                    <p>You now have two important tokens:</p>
+                    <ul>
+                        <li><strong>App Token</strong> (starts with <code>xapp-</code>) — from Socket Mode</li>
+                        <li><strong>Bot Token</strong> (starts with <code>xoxb-</code>) — from Install App</li>
+                    </ul>
+                    <p>Keep these safe — you'll need them when configuring OpenClaw!</p>
+                </div>
+                
+                <div class="checkpoint">✅ <strong>Checkpoint:</strong> You have both tokens saved and your bot appears in your Slack workspace.</div>
             </div>
             
             <div class="step">
