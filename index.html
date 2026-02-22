@@ -780,6 +780,16 @@ Ready to help me build this?</p>
                 <pre>tailscale up</pre>
                 <p>It will show you a link. Copy that link and open it in your browser. Click "Connect" to authorize your VPS.</p>
                 <div class="checkpoint">✅ <strong>Checkpoint:</strong> Your VPS now appears in the Tailscale app on your computer!</div>
+                
+                <div class="highlight" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); margin-top: 20px;">
+                    <h4 style="margin-top: 0;">📍 Two IP Addresses — Don't Get Confused!</h4>
+                    <p>Your VPS now has <strong>two</strong> IP addresses:</p>
+                    <ul style="margin-bottom: 0;">
+                        <li><strong>Public IP</strong> (from Hostinger, like <code>185.199.52.44</code>) — This is your VPS's "street address" on the internet. You used this for the first connection.</li>
+                        <li><strong>Tailscale IP</strong> (starts with <code>100.x.x.x</code>) — This is your private, secure tunnel. <strong>Use this from now on.</strong></li>
+                    </ul>
+                    <p style="margin-top: 15px; margin-bottom: 0;"><strong>Why Tailscale?</strong> It's encrypted, works from anywhere (coffee shop, airplane wifi), and you don't need to open ports on your server. Always connect via your Tailscale IP going forward.</p>
+                </div>
             </div>
             
             <div class="step">
