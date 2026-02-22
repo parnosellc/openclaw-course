@@ -152,12 +152,47 @@
         <div class="card">
             <h2>📑 Topics</h2>
             <div class="toc-grid">
+                <a href="#subscription" class="toc-item" style="background: linear-gradient(135deg, #ff6b6b 0%, #ff8e53 100%); color: white;">🔑 Claude Subscription</a>
                 <a href="#sessions" class="toc-item">🧵 Sessions</a>
                 <a href="#workspace" class="toc-item">📁 Workspace Files</a>
                 <a href="#cron" class="toc-item">⏰ Cron Jobs</a>
                 <a href="#skills" class="toc-item">🛠️ Building Skills</a>
                 <a href="#costs" class="toc-item">💰 Cost Management</a>
                 <a href="#day1" class="toc-item">📋 Day 1 Rules</a>
+            </div>
+        </div>
+        
+        <!-- Claude Subscription Setup -->
+        <div class="card" id="subscription">
+            <h2>🔑 Set Up Claude Subscription (Recommended)</h2>
+            <p>Now that your AI is working, let's connect it to your Claude subscription. This is <strong>better and cheaper</strong> than using API credits.</p>
+            
+            <div class="highlight" style="background: linear-gradient(135deg, #ff6b6b 0%, #ff8e53 100%);">
+                <strong>Why subscription?</strong> With Claude Pro ($20/mo) or Max ($100/mo), you get way more usage than paying per-token via API. Most people save money this way.
+            </div>
+            
+            <h3>Step 1: Get Your Setup Token</h3>
+            <p>On your <strong>local computer</strong> (not the VPS), open Terminal and run:</p>
+            <pre>claude setup-token</pre>
+            <p><em>Note: You need Claude Code installed. If "claude" doesn't work, install it first from <a href="https://claude.ai/download" target="_blank" style="color: #667eea;">claude.ai/download</a></em></p>
+            
+            <p>This will give you a URL. Open that URL in your browser, log into Claude, and you'll get a token string. Paste it back into Terminal — you'll receive a <strong>setup token</strong> (starts with <code>sk-</code>).</p>
+            
+            <h3>Step 2: Configure OpenClaw</h3>
+            <p>Now SSH into your VPS and run:</p>
+            <pre>openclaw configure</pre>
+            
+            <ol>
+                <li>Press Enter until you reach the <strong>model picker</strong> (or find "Models" in the list)</li>
+                <li>Select <strong>Anthropic</strong></li>
+                <li>Choose <strong>Subscription</strong> (not API)</li>
+                <li>Paste your setup token (the <code>sk-...</code> string)</li>
+                <li>Select your primary model — choose <strong>Claude Opus 4.6</strong> for best results</li>
+            </ol>
+            
+            <div class="tip">
+                <h3>💡 That's it!</h3>
+                <p>Your AI is now running on your Claude subscription. Way more cost-effective than API credits, and you get the full power of Opus.</p>
             </div>
         </div>
         
