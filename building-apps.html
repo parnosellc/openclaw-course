@@ -201,6 +201,7 @@
                 <a href="#when-to-build" class="toc-item">⚖️ When to Build</a>
                 <a href="#hybrid-approach" class="toc-item">🔀 Hybrid Approach</a>
                 <a href="#cursor" class="toc-item">✨ Meet Cursor</a>
+                <a href="#setup-cursor" class="toc-item">⚙️ Setting Up Cursor</a>
                 <a href="#getting-started" class="toc-item">🚀 Getting Started</a>
             </div>
         </div>
@@ -474,6 +475,114 @@ upload_to_youtube(video)             # YouTube API
                 <audio controls>
                     <source src="audio/apps-04-cursor.mp3" type="audio/mpeg">
                 </audio>
+            </div>
+        </div>
+
+        <!-- Setting Up Cursor -->
+        <div class="card" id="setup-cursor">
+            <h2>⚙️ Setting Up Cursor (Your Setup)</h2>
+            
+            <p>Here's exactly how this works with your current setup: Mac laptop, Hostinger VPS, Tailscale, and James on Slack.</p>
+
+            <h3>The Architecture</h3>
+            
+            <!-- Setup diagram -->
+            <svg viewBox="0 0 500 200" style="width: 100%; max-width: 500px; display: block; margin: 20px auto;">
+                <!-- Mac -->
+                <rect x="20" y="60" width="120" height="80" rx="10" fill="#333"/>
+                <text x="80" y="95" text-anchor="middle" fill="white" font-size="11" font-weight="bold">💻 Your Mac</text>
+                <text x="80" y="115" text-anchor="middle" fill="#888" font-size="9">Cursor lives here</text>
+                
+                <!-- Tailscale tunnel -->
+                <line x1="140" y1="100" x2="220" y2="100" stroke="#11998e" stroke-width="3" stroke-dasharray="8,4"/>
+                <text x="180" y="85" text-anchor="middle" fill="#11998e" font-size="9" font-weight="bold">Tailscale</text>
+                <text x="180" y="120" text-anchor="middle" fill="#666" font-size="8">SSH tunnel</text>
+                
+                <!-- VPS -->
+                <rect x="220" y="40" width="140" height="120" rx="10" fill="#11998e"/>
+                <text x="290" y="70" text-anchor="middle" fill="white" font-size="11" font-weight="bold">🖥️ Hostinger VPS</text>
+                <text x="290" y="90" text-anchor="middle" fill="white" font-size="9">Your code lives here</text>
+                <text x="290" y="110" text-anchor="middle" fill="white" font-size="9">Apps run here</text>
+                <text x="290" y="130" text-anchor="middle" fill="white" font-size="9">James lives here</text>
+                
+                <!-- Slack -->
+                <rect x="380" y="60" width="100" height="80" rx="10" fill="#4a154b"/>
+                <text x="430" y="95" text-anchor="middle" fill="white" font-size="11" font-weight="bold">💬 Slack</text>
+                <text x="430" y="115" text-anchor="middle" fill="#888" font-size="9">Talk to James</text>
+                
+                <!-- Arrow VPS to Slack -->
+                <line x1="360" y1="100" x2="380" y2="100" stroke="#4a154b" stroke-width="2" marker-end="url(#arrow)"/>
+            </svg>
+
+            <h3>Step 1: Download Cursor</h3>
+            <ol>
+                <li>Go to <a href="https://cursor.com" target="_blank">cursor.com</a></li>
+                <li>Click <strong>Download for Mac</strong></li>
+                <li>Drag to Applications, open it</li>
+                <li>Sign up for free account</li>
+            </ol>
+
+            <h3>Step 2: Connect to Your VPS</h3>
+            <p>Cursor can edit files directly on your VPS over SSH. Here's how:</p>
+            <ol>
+                <li>Open Cursor</li>
+                <li>Press <code>Cmd+Shift+P</code> to open Command Palette</li>
+                <li>Type <strong>"Remote-SSH: Connect to Host"</strong></li>
+                <li>Enter your Tailscale VPS address: <code>root@100.x.x.x</code></li>
+                <li>First time: Cursor installs a helper on your VPS (takes 30 seconds)</li>
+                <li>Done — you're now editing files on your VPS</li>
+            </ol>
+
+            <div class="tip">
+                <h3>💡 Why Tailscale?</h3>
+                <p>Tailscale creates a private tunnel to your VPS. No exposed ports, no security worries. Your VPS IP starts with <code>100.</code> — that's your Tailscale address.</p>
+            </div>
+
+            <h3>Step 3: Open Your Workspace</h3>
+            <p>Once connected, open the folder where your code lives:</p>
+            <ol>
+                <li>File → Open Folder</li>
+                <li>Navigate to <code>/data/.openclaw/workspace</code> (or wherever you want to code)</li>
+                <li>You'll see all files in the sidebar — just like they're on your Mac</li>
+            </ol>
+
+            <h3>Cursor + James: The Workflow</h3>
+            <p>Here's the key insight: <strong>Cursor and James both touch the same files</strong>. They're parallel tools.</p>
+
+            <table class="comparison-table">
+                <tr>
+                    <th>Use Cursor When...</th>
+                    <th>Use James (Slack) When...</th>
+                </tr>
+                <tr>
+                    <td>✅ Building something new</td>
+                    <td>✅ Quick fixes ("change line 12")</td>
+                </tr>
+                <tr>
+                    <td>✅ You want to watch/learn</td>
+                    <td>✅ Running commands ("deploy it")</td>
+                </tr>
+                <tr>
+                    <td>✅ Complex coding sessions</td>
+                    <td>✅ You're on your phone</td>
+                </tr>
+                <tr>
+                    <td>✅ Working on visuals/UI</td>
+                    <td>✅ Monitoring/checking status</td>
+                </tr>
+            </table>
+
+            <div class="highlight">
+                <strong>🔄 Example Day:</strong><br><br>
+                <strong>Saturday afternoon:</strong> You open Cursor, connect to VPS, build a new script with AI help.<br><br>
+                <strong>Sunday morning:</strong> You Slack James: "run the script I made yesterday" — he runs it.<br><br>
+                <strong>Monday:</strong> You notice a bug, Slack James: "the script crashes on line 45, fix it" — he edits and reruns.<br><br>
+                <strong>Tuesday:</strong> You want to add a feature — open Cursor again.
+            </div>
+
+            <div class="warning">
+                <h3>⚠️ One Thing to Know</h3>
+                <p>If you and James edit the same file at the same time, you might overwrite each other. In practice this rarely happens — just don't have Cursor open while asking James to edit the same file.</p>
             </div>
         </div>
 
